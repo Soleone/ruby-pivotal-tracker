@@ -12,8 +12,7 @@ class Tracker
   
   def initialize(project_id = '123', token = '45a6a078f67d9210d2fba91f8c484e7b', ssl=true)
     @project_id, @token, @ssl = project_id, token, ssl
-    protocol = @ssl ? 'https' : 'http'
-    port     = @ssl ? '443'   : '80'
+    protocol, port = @ssl ? ['https', '443'] : ['http', '80']
     @base_url = "#{protocol}://www.pivotaltracker.com:#{port}/services/v1/projects"
   end
   
